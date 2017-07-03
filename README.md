@@ -6,6 +6,11 @@
 Generates markdown for a build report, containing for example JUnit report, code coverage report, etc. A success example result can be found [here](./result-success.md) and a failure example result can be found [here](./result-failure.md).
 
 
+## Supported reports
+
+  * Checkstyle
+
+
 ## License
 
 Apache License © [Anton Johansson](https://github.com/anton-johansson)
