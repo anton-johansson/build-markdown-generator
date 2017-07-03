@@ -15,13 +15,22 @@
  */
 package com.antonjohansson.brmg.core.model;
 
+import static java.util.Collections.emptyList;
+import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
+import java.util.List;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * Provides a model for checkstyle violations.
  */
 public class CheckstyleModel
 {
     private boolean resultsPresent;
-    private int numberOfViolations;
+    private List<CheckstyleViolation> violations = emptyList();
 
     public boolean isResultsPresent()
     {
@@ -33,13 +42,52 @@ public class CheckstyleModel
         this.resultsPresent = resultsPresent;
     }
 
-    public int getNumberOfViolations()
+    public List<CheckstyleViolation> getViolations()
     {
-        return numberOfViolations;
+        return violations;
     }
 
-    public void setNumberOfViolations(int numberOfViolations)
+    public void setViolations(List<CheckstyleViolation> violations)
     {
-        this.numberOfViolations = numberOfViolations;
+        this.violations = violations;
+    }
+
+    public int getNumberOfViolations()
+    {
+        return violations.size();
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return new HashCodeBuilder()
+                .append(resultsPresent)
+                .append(violations)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == null || obj.getClass() != getClass())
+        {
+            return false;
+        }
+        if (obj == this)
+        {
+            return true;
+        }
+
+        CheckstyleModel that = (CheckstyleModel) obj;
+        return new EqualsBuilder()
+                .append(this.resultsPresent, that.resultsPresent)
+                .append(this.violations, that.violations)
+                .isEquals();
+    }
+
+    @Override
+    public String toString()
+    {
+        return reflectionToString(this, SHORT_PREFIX_STYLE);
     }
 }

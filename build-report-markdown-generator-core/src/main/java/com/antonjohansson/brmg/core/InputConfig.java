@@ -17,6 +17,7 @@ package com.antonjohansson.brmg.core;
 
 import static java.util.Collections.emptyList;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -24,7 +25,18 @@ import java.util.List;
  */
 public class InputConfig
 {
+    private File root;
     private List<String> checkstyleReportPatterns = emptyList();
+
+    public File getRoot()
+    {
+        return root;
+    }
+
+    public void setRoot(File root)
+    {
+        this.root = root;
+    }
 
     public List<String> getCheckstyleReportPatterns()
     {
