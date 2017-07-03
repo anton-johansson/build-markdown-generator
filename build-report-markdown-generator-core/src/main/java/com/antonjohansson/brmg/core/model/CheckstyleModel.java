@@ -30,6 +30,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class CheckstyleModel
 {
     private boolean resultsPresent;
+    private String detailedReportURL = "";
     private List<CheckstyleViolation> violations = emptyList();
 
     public boolean isResultsPresent()
@@ -40,6 +41,16 @@ public class CheckstyleModel
     public void setResultsPresent(boolean resultsPresent)
     {
         this.resultsPresent = resultsPresent;
+    }
+
+    public String getDetailedReportURL()
+    {
+        return detailedReportURL;
+    }
+
+    public void setDetailedReportURL(String detailedReportURL)
+    {
+        this.detailedReportURL = detailedReportURL;
     }
 
     public List<CheckstyleViolation> getViolations()
@@ -62,6 +73,7 @@ public class CheckstyleModel
     {
         return new HashCodeBuilder()
                 .append(resultsPresent)
+                .append(detailedReportURL)
                 .append(violations)
                 .toHashCode();
     }
@@ -81,6 +93,7 @@ public class CheckstyleModel
         CheckstyleModel that = (CheckstyleModel) obj;
         return new EqualsBuilder()
                 .append(this.resultsPresent, that.resultsPresent)
+                .append(this.detailedReportURL, that.detailedReportURL)
                 .append(this.violations, that.violations)
                 .isEquals();
     }

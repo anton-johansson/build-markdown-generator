@@ -15,7 +15,12 @@
  */
 package com.antonjohansson.brmg.core;
 
+import java.io.StringWriter;
+
 import com.antonjohansson.brmg.core.model.Model;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 
 /**
  * Generates markdown for a given model.
@@ -26,11 +31,22 @@ class Generator
      * Generates markdown.
      *
      * @param model The model to generate for.
-     * @param template The template to use.
+     * @param templateCode The template to use.
      * @return Returns the generated markdown.
      */
-    String generate(Model model, String template)
+    String generate(Model model, String templateCode)
     {
-        return "";
+        try
+        {
+            Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
+            Template template = new Template("default", templateCode, cfg);
+            StringWriter writer = new StringWriter();
+            template.process(model, writer);
+            return writer.toString();
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 }

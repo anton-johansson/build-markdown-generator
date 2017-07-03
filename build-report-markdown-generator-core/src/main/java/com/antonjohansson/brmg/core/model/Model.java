@@ -20,7 +20,18 @@ package com.antonjohansson.brmg.core.model;
  */
 public class Model
 {
+    private String detailedReportURL = "";
     private CheckstyleModel checkstyle = new CheckstyleModel();
+
+    public String getDetailedReportURL()
+    {
+        return detailedReportURL;
+    }
+
+    public void setDetailedReportURL(String detailedReportURL)
+    {
+        this.detailedReportURL = detailedReportURL;
+    }
 
     public CheckstyleModel getCheckstyle()
     {
