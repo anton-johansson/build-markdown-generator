@@ -8,6 +8,7 @@ import java.io.File;
 public class OutputConfig
 {
     private File outputFile;
+    private String template = "";
 
     public File getOutputFile()
     {
@@ -17,5 +18,15 @@ public class OutputConfig
     public void setOutputFile(File outputFile)
     {
         this.outputFile = outputFile;
+    }
+
+    public String getTemplate()
+    {
+        return template;
+    }
+
+    public void setTemplate(String template)
+    {
+        this.template = template;
     }
 }
