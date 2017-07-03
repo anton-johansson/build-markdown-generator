@@ -31,6 +31,41 @@
     <name>Anton Johansson :: Build Report Markdown Generator</name>
     <description>Generates markdown for a build report, containing for example JUnit report, code coverage report, etc.</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <organization />
+
+    <developers>
+        <developer>
+            <id>anton-johansson</id>
+            <name>Anton Johansson</name>
+            <email>antoon.johansson@gmail.com</email>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <url>https://github.com/anton-johansson/build-report-markdown-generator/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/anton-johansson/build-report-markdown-generator</url>
+        <connection>scm:git:git@github.com:anton-johansson/build-report-markdown-generator.git</connection>
+        <developerConnection>scm:git:git@github.com:anton-johansson/build-report-markdown-generator.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <modules>
         <module>build-report-markdown-generator-core</module>
     </modules>
