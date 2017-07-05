@@ -51,9 +51,6 @@ public class CheckstyleModuleTest extends Assert
                 new CheckstyleViolation("/some-path-to-projects/my-project/my-module1/src/main/java/com/some/test/MyClass2.java", 3, "Missing a Javadoc comment.", WARNING),
                 new CheckstyleViolation("/some-path-to-projects/my-project/my-module1/src/main/java/com/some/test/MyClass2Test.java", 3, "Missing a Javadoc comment.", WARNING)));
 
-        System.out.println(actual);
-        System.out.println(expected);
-
         assertEquals(expected, actual);
     }
 
