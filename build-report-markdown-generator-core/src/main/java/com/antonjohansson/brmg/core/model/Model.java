@@ -53,4 +53,10 @@ public class Model
     {
         this.junit = junit;
     }
+
+    public boolean isResultsPresent()
+    {
+        return checkstyle.isResultsPresent()
+            || junit.isResultsPresent();
+    }
 }

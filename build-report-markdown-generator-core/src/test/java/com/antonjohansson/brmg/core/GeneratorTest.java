@@ -40,6 +40,18 @@ public class GeneratorTest extends Assert
     private final Generator generator = new Generator();
 
     @Test
+    public void test_none()
+    {
+        Model model = new Model();
+        model.setDetailedReportURL("https://my-jenkins-instance/job/build/130/");
+
+        String expected = file("/markdown/expected-none.md");
+        String actual = generator.generate(model, file("/templates/template.md"));
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void test_all()
     {
         CheckstyleModel checkstyle = new CheckstyleModel();
