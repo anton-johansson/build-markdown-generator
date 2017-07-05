@@ -27,6 +27,7 @@ public class InputConfig
 {
     private File root;
     private List<String> checkstyleReportPatterns = emptyList();
+    private List<String> junitReportPatterns = emptyList();
 
     public File getRoot()
     {
@@ -46,5 +47,15 @@ public class InputConfig
     public void setCheckstyleReportPatterns(List<String> checkstyleReportPatterns)
     {
         this.checkstyleReportPatterns = checkstyleReportPatterns;
+    }
+
+    public List<String> getJunitReportPatterns()
+    {
+        return junitReportPatterns;
+    }
+
+    public void setJunitReportPatterns(List<String> junitReportPatterns)
+    {
+        this.junitReportPatterns = junitReportPatterns;
     }
 }

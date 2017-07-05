@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.some.test.MyClassTest" time="0.005" tests="5" errors="1" skipped="1" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+  </properties>
+  <testcase name="test_something1" classname="com.some.test.MyClassTest" time="0"/>
+  <testcase name="test_something2" classname="com.some.test.MyClassTest" time="0">
+    <skipped><a></a></skipped>
+  </testcase>
+  <testcase name="test_something3" classname="com.some.test.MyClassTest" time="0.003">
+    <failure message="FAIL!" type="java.lang.AssertionError">java.lang.AssertionError: FAIL!
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.some.test.MyClassTest.test_something3(MyClassTest.java:26)
+</failure>
+  </testcase>
+  <testcase name="test_something4" classname="com.some.test.MyClassTest" time="0.002">
+    <error message="ERROR!" type="java.lang.RuntimeException">java.lang.RuntimeException: ERROR!
+	at com.some.test.MyClassTest.test_something4(MyClassTest.java:32)
+</error>
+  </testcase>
+  <testcase name="test_something5" classname="com.some.test.MyClassTest" time="0"/>
+</testsuite>

@@ -9,6 +9,7 @@ Generates markdown for a build report, containing for example JUnit report, code
 ## Supported reports
 
   * Checkstyle
+  * JUnit
 
 
 ## License

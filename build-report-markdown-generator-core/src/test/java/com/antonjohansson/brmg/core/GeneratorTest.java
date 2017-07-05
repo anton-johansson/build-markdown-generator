@@ -20,6 +20,7 @@ import static java.util.Arrays.asList;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
@@ -27,6 +28,8 @@ import org.junit.Test;
 
 import com.antonjohansson.brmg.core.model.CheckstyleModel;
 import com.antonjohansson.brmg.core.model.CheckstyleViolation;
+import com.antonjohansson.brmg.core.model.JUnitFailure;
+import com.antonjohansson.brmg.core.model.JUnitModel;
 import com.antonjohansson.brmg.core.model.Model;
 
 /**
@@ -46,14 +49,41 @@ public class GeneratorTest extends Assert
                 new CheckstyleViolation("MyClass.java", 3, "Missing JavaDoc.", WARNING),
                 new CheckstyleViolation("SomeOtherClass.java", 15, "Redundant newline(s).", WARNING)));
 
+        JUnitModel junit = new JUnitModel();
+        junit.setExecutionTime(new BigDecimal("0.01"));
+        junit.setNumberOfTests(5);
+        junit.setNumberOfFailures(1);
+        junit.setNumberOfErrors(1);
+        junit.setFailures(asList(
+                failure("test_something3", "0.003", "FAIL!", "java.lang.AssertionError: FAIL!\n"
+                    + "\tat org.junit.Assert.fail(Assert.java:88)\n"
+                    + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n"),
+                failure("test_something4", "0.002", "ERROR!", "java.lang.RuntimeException: ERROR!\n"
+                    + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n")));
+        junit.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
+        junit.setResultsPresent(true);
+
         Model model = new Model();
         model.setDetailedReportURL("https://my-jenkins-instance/job/build/130/");
         model.setCheckstyle(checkstyle);
+        model.setJunit(junit);
 
         String expected = file("/markdown/expected-all.md");
         String actual = generator.generate(model, file("/templates/template.md"));
 
         assertEquals(expected, actual);
+    }
+
+    private JUnitFailure failure(String testName, String executionTime, String message, String stacktrace)
+    {
+        JUnitFailure failure = new JUnitFailure();
+        failure.setClassName("com.some.test.MyClassTest");
+        failure.setTestName(testName);
+        failure.setMessage(message);
+        failure.setStacktrace(stacktrace);
+        failure.setExecutionTime(new BigDecimal(executionTime));
+        failure.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/com.some.test/MyClassTest/" + testName + "/");
+        return failure;
     }
 
     private String file(String file)

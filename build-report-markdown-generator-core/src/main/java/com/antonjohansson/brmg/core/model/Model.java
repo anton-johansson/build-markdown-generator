@@ -22,6 +22,7 @@ public class Model
 {
     private String detailedReportURL = "";
     private CheckstyleModel checkstyle = new CheckstyleModel();
+    private JUnitModel junit = new JUnitModel();
 
     public String getDetailedReportURL()
     {
@@ -41,5 +42,15 @@ public class Model
     public void setCheckstyle(CheckstyleModel checkstyle)
     {
         this.checkstyle = checkstyle;
+    }
+
+    public JUnitModel getJunit()
+    {
+        return junit;
+    }
+
+    public void setJunit(JUnitModel junit)
+    {
+        this.junit = junit;
     }
 }
