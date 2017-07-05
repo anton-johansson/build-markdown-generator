@@ -17,6 +17,7 @@ package com.antonjohansson.brmg.core;
 
 import com.antonjohansson.brmg.core.model.Model;
 import com.antonjohansson.brmg.core.modules.CheckstyleModule;
+import com.antonjohansson.brmg.core.modules.JUnitModule;
 
 /**
  * Processes reports and generates a {@link Model}.
@@ -24,10 +25,16 @@ import com.antonjohansson.brmg.core.modules.CheckstyleModule;
 class Processor
 {
     private CheckstyleModule checkstyle = new CheckstyleModule();
+    private JUnitModule junit = new JUnitModule();
 
     void setCheckstyle(CheckstyleModule checkstyle)
     {
         this.checkstyle = checkstyle;
+    }
+
+    void setJunit(JUnitModule junit)
+    {
+        this.junit = junit;
     }
 
     /**
@@ -40,6 +47,7 @@ class Processor
     {
         Model model = new Model();
         model.setCheckstyle(checkstyle.process(config));
+        model.setJunit(junit.process(config));
         return model;
     }
 }

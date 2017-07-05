@@ -18,11 +18,11 @@ package com.antonjohansson.brmg.core.modules;
 import static com.antonjohansson.brmg.core.model.CheckstyleSeverity.fromCheckstyleName;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 import static java.util.Collections.emptyList;
+import static java.util.Collections.unmodifiableList;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import com.antonjohansson.brmg.core.InputConfig;
@@ -87,7 +87,7 @@ public class CheckstyleModule
         }
 
         model.setResultsPresent(true);
-        model.setViolations(Collections.unmodifiableList(violations));
+        model.setViolations(unmodifiableList(violations));
         return model;
     }
 
