@@ -41,6 +41,7 @@ public class JUnitModuleTest extends Assert
         config.setRoot(new File("src/test/resources/junit-with-failures"));
         config.setJunitReportPatterns(asList("**/target/surefire-reports/TEST-*.xml"));
         config.setJunitDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
+        config.setJunitDetailedReportForTestURL("https://my-jenkins-instance/job/build/130/testReport/[packageName]/[simpleClassName]/[testName]");
 
         JUnitModel actual = module.process(config);
         JUnitModel expected = new JUnitModel();
@@ -57,6 +58,8 @@ public class JUnitModuleTest extends Assert
         expected.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
         expected.setResultsPresent(true);
 
+        System.out.println(actual.toString().replace("\n", ""));
+        System.out.println(expected.toString().replace("\n", ""));
         assertEquals(expected, actual);
     }
 
@@ -68,6 +71,7 @@ public class JUnitModuleTest extends Assert
         failure.setMessage(message);
         failure.setStacktrace(stacktrace);
         failure.setExecutionTime(new BigDecimal(executionTime));
+        failure.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/com.some.test/MyClassTest/" + testName);
         return failure;
     }
 }

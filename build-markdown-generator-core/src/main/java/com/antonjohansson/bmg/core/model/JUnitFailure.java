@@ -15,6 +15,8 @@
  */
 package com.antonjohansson.bmg.core.model;
 
+import static org.apache.commons.lang3.StringUtils.substringAfterLast;
+import static org.apache.commons.lang3.StringUtils.substringBeforeLast;
 import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
@@ -93,6 +95,16 @@ public class JUnitFailure
     public void setDetailedReportURL(String detailedReportURL)
     {
         this.detailedReportURL = detailedReportURL;
+    }
+
+    public String getPackageName()
+    {
+        return substringBeforeLast(className, ".");
+    }
+
+    public String getSimpleClassName()
+    {
+        return substringAfterLast(className, ".");
     }
 
     @Override

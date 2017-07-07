@@ -23,6 +23,7 @@ $ mvn com.anton-johansson:build-markdown-generator-maven-plugin:1.0.0:generate \
       -DbuildMarkdownGenerator.checkstyleDetailedReportURL=https://my-jenkins-instance/job/build/130/checkstyleResult/
       -DbuildMarkdownGenerator.junitReportPatterns=**/target/surefire-reports/TEST-*.xml \
       -DbuildMarkdownGenerator.junitDetailedReportURL=https://my-jenkins-instance/job/build/130/testReport/
+      -DbuildMarkdownGenerator.junitDetailedReportForTestURL=https://my-jenkins-instance/job/build/130/testReport/[packageName]/[simpleClassName]/[testName]
 ```
 
 

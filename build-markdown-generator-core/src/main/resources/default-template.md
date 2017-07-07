@@ -12,7 +12,7 @@ A more detailed report can be found [here](${detailedReportURL}).
 | Test | Message | Time |
 | ---- | ------- | ---- |
 <#list junit.failures as failure>
-| [`${failure.className}.${failure.testName}`](${failure.detailedReportURL}) | ${failure.message} | ${failure.executionTime} |
+| <#if failure.detailedReportURL?has_content>[</#if>`${failure.className}.${failure.testName}`<#if failure.detailedReportURL?has_content>](${failure.detailedReportURL})</#if> | ${failure.message} | ${failure.executionTime} |
 </#list>
 </#if>
 <#if checkstyle.resultsPresent>

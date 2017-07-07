@@ -31,6 +31,7 @@ public class InputConfig
     private String checkstyleDetailedReportURL = "";
     private List<String> junitReportPatterns = emptyList();
     private String junitDetailedReportURL = "";
+    private String junitDetailedReportForTestURL = "";
 
     public File getRoot()
     {
@@ -90,5 +91,15 @@ public class InputConfig
     public void setJunitDetailedReportURL(String junitDetailedReportURL)
     {
         this.junitDetailedReportURL = junitDetailedReportURL;
+    }
+
+    public String getJunitDetailedReportForTestURL()
+    {
+        return junitDetailedReportForTestURL;
+    }
+
+    public void setJunitDetailedReportForTestURL(String junitDetailedReportForTestURL)
+    {
+        this.junitDetailedReportForTestURL = junitDetailedReportForTestURL;
     }
 }

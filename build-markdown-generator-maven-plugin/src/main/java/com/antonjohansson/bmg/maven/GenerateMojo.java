@@ -51,6 +51,9 @@ public class GenerateMojo extends AbstractMojo
     @Parameter(property = "buildMarkdownGenerator.junitDetailedReportURL")
     private String junitDetailedReportURL;
 
+    @Parameter(property = "buildMarkdownGenerator.junitDetailedReportForTestURL")
+    private String junitDetailedReportForTestURL;
+
     @Parameter(property = "buildMarkdownGenerator.root", required = true, defaultValue = "${project.build.directory}")
     private File root;
 
@@ -69,6 +72,7 @@ public class GenerateMojo extends AbstractMojo
         input.setCheckstyleDetailedReportURL(checkstyleDetailedReportURL);
         input.setJunitReportPatterns(junitReportPatterns);
         input.setJunitDetailedReportURL(junitDetailedReportURL);
+        input.setJunitDetailedReportForTestURL(junitDetailedReportForTestURL);
         input.setRoot(root);
 
         OutputConfig output = new OutputConfig();

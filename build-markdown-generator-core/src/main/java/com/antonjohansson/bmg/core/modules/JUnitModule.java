@@ -18,6 +18,7 @@ package com.antonjohansson.bmg.core.modules;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.io.File;
 import java.io.IOException;
@@ -98,6 +99,8 @@ public class JUnitModule
                             failure.setMessage(testcase.getMessage());
                             failure.setStacktrace(testcase.getStacktrace());
                             failure.setExecutionTime(testcase.getTime());
+                            String detailedReportURL = getDetailedReportURL(config, failure);
+                            failure.setDetailedReportURL(detailedReportURL);
                             return failure;
                         })
                         .forEach(failures::add);
@@ -116,6 +119,20 @@ public class JUnitModule
         model.setDetailedReportURL(config.getJunitDetailedReportURL());
         model.setResultsPresent(true);
         return model;
+    }
+
+    private String getDetailedReportURL(InputConfig config, JUnitFailure failure)
+    {
+        if (isBlank(config.getJunitDetailedReportForTestURL()))
+        {
+            return "";
+        }
+
+        return config.getJunitDetailedReportForTestURL()
+                .replace("[className]", failure.getClassName())
+                .replace("[packageName]", failure.getPackageName())
+                .replace("[simpleClassName]", failure.getSimpleClassName())
+                .replace("[testName]", failure.getTestName());
     }
 
     /**
