@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+  This plug-in generates markdown from builds that can be used to pass on to GitLab or similar.
+</div>
