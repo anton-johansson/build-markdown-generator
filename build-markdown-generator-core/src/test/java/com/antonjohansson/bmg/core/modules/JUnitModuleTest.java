@@ -40,6 +40,7 @@ public class JUnitModuleTest extends Assert
         InputConfig config = new InputConfig();
         config.setRoot(new File("src/test/resources/junit-with-failures"));
         config.setJunitReportPatterns(asList("**/target/surefire-reports/TEST-*.xml"));
+        config.setJunitDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
 
         JUnitModel actual = module.process(config);
         JUnitModel expected = new JUnitModel();
@@ -53,6 +54,7 @@ public class JUnitModuleTest extends Assert
                     + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n"),
                 failure("test_something4", "0.002", "ERROR!", "java.lang.RuntimeException: ERROR!\n"
                     + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n")));
+        expected.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
         expected.setResultsPresent(true);
 
         assertEquals(expected, actual);

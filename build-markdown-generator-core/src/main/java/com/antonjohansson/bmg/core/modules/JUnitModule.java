@@ -113,6 +113,7 @@ public class JUnitModule
         model.setNumberOfFailures(numberOfFailures);
         model.setNumberOfErrors(numberOfErrors);
         model.setFailures(unmodifiableList(failures));
+        model.setDetailedReportURL(config.getJunitDetailedReportURL());
         model.setResultsPresent(true);
         return model;
     }

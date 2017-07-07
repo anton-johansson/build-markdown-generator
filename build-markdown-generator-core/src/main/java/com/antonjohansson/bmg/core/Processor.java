@@ -46,6 +46,7 @@ class Processor
     Model process(InputConfig config)
     {
         Model model = new Model();
+        model.setDetailedReportURL(config.getDetailedReportURL());
         model.setCheckstyle(checkstyle.process(config));
         model.setJunit(junit.process(config));
         return model;

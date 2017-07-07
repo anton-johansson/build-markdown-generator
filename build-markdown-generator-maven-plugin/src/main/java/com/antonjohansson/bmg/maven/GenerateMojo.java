@@ -36,11 +36,20 @@ import com.antonjohansson.bmg.core.Runner;
 @Mojo(name = "generate", aggregator = true)
 public class GenerateMojo extends AbstractMojo
 {
+    @Parameter(property = "buildMarkdownGenerator.detailedReportURL")
+    private String detailedReportURL;
+
     @Parameter(property = "buildMarkdownGenerator.checkstyleReportPatterns")
     private List<String> checkstyleReportPatterns;
 
+    @Parameter(property = "buildMarkdownGenerator.checkstyleDetailedReportURL")
+    private String checkstyleDetailedReportURL;
+
     @Parameter(property = "buildMarkdownGenerator.junitReportPatterns")
     private List<String> junitReportPatterns;
+
+    @Parameter(property = "buildMarkdownGenerator.junitDetailedReportURL")
+    private String junitDetailedReportURL;
 
     @Parameter(property = "buildMarkdownGenerator.root", required = true, defaultValue = "${project.build.directory}")
     private File root;
@@ -55,8 +64,11 @@ public class GenerateMojo extends AbstractMojo
     public void execute() throws MojoExecutionException, MojoFailureException
     {
         InputConfig input = new InputConfig();
+        input.setDetailedReportURL(detailedReportURL);
         input.setCheckstyleReportPatterns(checkstyleReportPatterns);
+        input.setCheckstyleDetailedReportURL(checkstyleDetailedReportURL);
         input.setJunitReportPatterns(junitReportPatterns);
+        input.setJunitDetailedReportURL(junitDetailedReportURL);
         input.setRoot(root);
 
         OutputConfig output = new OutputConfig();

@@ -87,6 +87,7 @@ public class CheckstyleModule
         }
 
         model.setResultsPresent(true);
+        model.setDetailedReportURL(config.getCheckstyleDetailedReportURL());
         model.setViolations(unmodifiableList(violations));
         return model;
     }

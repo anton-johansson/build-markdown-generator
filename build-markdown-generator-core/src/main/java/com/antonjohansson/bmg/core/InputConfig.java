@@ -26,8 +26,11 @@ import java.util.List;
 public class InputConfig
 {
     private File root;
+    private String detailedReportURL = "";
     private List<String> checkstyleReportPatterns = emptyList();
+    private String checkstyleDetailedReportURL = "";
     private List<String> junitReportPatterns = emptyList();
+    private String junitDetailedReportURL = "";
 
     public File getRoot()
     {
@@ -37,6 +40,16 @@ public class InputConfig
     public void setRoot(File root)
     {
         this.root = root;
+    }
+
+    public String getDetailedReportURL()
+    {
+        return detailedReportURL;
+    }
+
+    public void setDetailedReportURL(String detailedReportURL)
+    {
+        this.detailedReportURL = detailedReportURL;
     }
 
     public List<String> getCheckstyleReportPatterns()
@@ -49,6 +62,16 @@ public class InputConfig
         this.checkstyleReportPatterns = checkstyleReportPatterns;
     }
 
+    public String getCheckstyleDetailedReportURL()
+    {
+        return checkstyleDetailedReportURL;
+    }
+
+    public void setCheckstyleDetailedReportURL(String checkstyleDetailedReportURL)
+    {
+        this.checkstyleDetailedReportURL = checkstyleDetailedReportURL;
+    }
+
     public List<String> getJunitReportPatterns()
     {
         return junitReportPatterns;
@@ -57,5 +80,15 @@ public class InputConfig
     public void setJunitReportPatterns(List<String> junitReportPatterns)
     {
         this.junitReportPatterns = junitReportPatterns;
+    }
+
+    public String getJunitDetailedReportURL()
+    {
+        return junitDetailedReportURL;
+    }
+
+    public void setJunitDetailedReportURL(String junitDetailedReportURL)
+    {
+        this.junitDetailedReportURL = junitDetailedReportURL;
     }
 }

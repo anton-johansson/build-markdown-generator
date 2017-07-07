@@ -1,11 +1,13 @@
 ## Build report
+<#if detailedReportURL?has_content>
 
 A more detailed report can be found [here](${detailedReportURL}).
+</#if>
 <#if junit.resultsPresent>
 
 ### JUnit
 
-:cloud: ${junit.numberOfTests - junit.numberOfFailures - junit.numberOfErrors}/${junit.numberOfTests} tests passed, over ${junit.executionTime} seconds. A more detailed report can be found [here](${junit.detailedReportURL}).
+:cloud: ${junit.numberOfTests - junit.numberOfFailures - junit.numberOfErrors}/${junit.numberOfTests} tests passed, over ${junit.executionTime} seconds.<#if junit.detailedReportURL?has_content> A more detailed report can be found [here](${junit.detailedReportURL}).</#if>
 
 | Test | Message | Time |
 | ---- | ------- | ---- |
@@ -17,7 +19,7 @@ A more detailed report can be found [here](${detailedReportURL}).
 
 ### Checkstyle
 
-:warning: ${checkstyle.numberOfViolations} violations found. A more detailed report can be found [here](${checkstyle.detailedReportURL}).
+:warning: ${checkstyle.numberOfViolations} violations found.<#if checkstyle.detailedReportURL?has_content> A more detailed report can be found [here](${checkstyle.detailedReportURL}).</#if>
 
 | Class | Line | Message |
 | ----- | ---- | ------- |

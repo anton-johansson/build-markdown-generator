@@ -86,6 +86,38 @@ public class GeneratorTest extends Assert
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void test_without_detailed_URLs()
+    {
+        CheckstyleModel checkstyle = new CheckstyleModel();
+        checkstyle.setResultsPresent(true);
+        checkstyle.setViolations(asList(
+                new CheckstyleViolation("MyClass.java", 3, "Missing JavaDoc.", WARNING),
+                new CheckstyleViolation("SomeOtherClass.java", 15, "Redundant newline(s).", WARNING)));
+
+        JUnitModel junit = new JUnitModel();
+        junit.setExecutionTime(new BigDecimal("0.01"));
+        junit.setNumberOfTests(5);
+        junit.setNumberOfFailures(1);
+        junit.setNumberOfErrors(1);
+        junit.setFailures(asList(
+                failure("test_something3", "0.003", "FAIL!", "java.lang.AssertionError: FAIL!\n"
+                    + "\tat org.junit.Assert.fail(Assert.java:88)\n"
+                    + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n"),
+                failure("test_something4", "0.002", "ERROR!", "java.lang.RuntimeException: ERROR!\n"
+                    + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n")));
+        junit.setResultsPresent(true);
+
+        Model model = new Model();
+        model.setCheckstyle(checkstyle);
+        model.setJunit(junit);
+
+        String expected = file("/markdown/expected-without-detailed-URLs.md");
+        String actual = generator.generate(model, null);
+
+        assertEquals(expected, actual);
+    }
+
     private JUnitFailure failure(String testName, String executionTime, String message, String stacktrace)
     {
         JUnitFailure failure = new JUnitFailure();

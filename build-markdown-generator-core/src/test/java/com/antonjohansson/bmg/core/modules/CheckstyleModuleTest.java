@@ -42,10 +42,12 @@ public class CheckstyleModuleTest extends Assert
         config.setCheckstyleReportPatterns(asList(
                 "**/target/checkstyle-result-main.xml",
                 "**/target/checkstyle-result-test.xml"));
+        config.setCheckstyleDetailedReportURL("https://my-jenkins-instance/job/build/130/checkstyleReport/");
 
         CheckstyleModel actual = module.process(config);
         CheckstyleModel expected = new CheckstyleModel();
         expected.setResultsPresent(true);
+        expected.setDetailedReportURL("https://my-jenkins-instance/job/build/130/checkstyleReport/");
         expected.setViolations(asList(
                 new CheckstyleViolation("/some-path-to-projects/my-project/my-module1/src/main/java/com/some/test/MyClass.java", 3, "Missing a Javadoc comment.", WARNING),
                 new CheckstyleViolation("/some-path-to-projects/my-project/my-module1/src/main/java/com/some/test/MyClass2.java", 3, "Missing a Javadoc comment.", WARNING),

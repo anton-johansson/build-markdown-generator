@@ -18,8 +18,11 @@ Generates markdown for build reports, containing for example JUnit report, code 
 
 ```
 $ mvn com.anton-johansson:build-markdown-generator-maven-plugin:1.0.0:generate \
+      -DbuildMarkdownGenerator.detailedReportURL=https://my-jenkins-instance/job/build/130/
       -DbuildMarkdownGenerator.checkstyleReportPatterns=**/target/checkstyle-result.xml \
-      -DbuildMarkdownGenerator.junitReportPatterns=**/target/surefire-reports/TEST-*.xml
+      -DbuildMarkdownGenerator.checkstyleDetailedReportURL=https://my-jenkins-instance/job/build/130/checkstyleResult/
+      -DbuildMarkdownGenerator.junitReportPatterns=**/target/surefire-reports/TEST-*.xml \
+      -DbuildMarkdownGenerator.junitDetailedReportURL=https://my-jenkins-instance/job/build/130/testReport/
 ```
 
 
