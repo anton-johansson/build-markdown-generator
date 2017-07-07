@@ -25,11 +25,11 @@
         <version>5</version>
     </parent>
     <groupId>com.anton-johansson</groupId>
-    <artifactId>build-report-markdown-generator</artifactId>
+    <artifactId>build-markdown-generator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Anton Johansson :: Build Report Markdown Generator</name>
-    <description>Generates markdown for a build report, containing for example JUnit report, code coverage report, etc.</description>
+    <name>Anton Johansson :: Build Markdown Generator</name>
+    <description>Generates markdown for build reports, containing for example JUnit report, code coverage report, etc.</description>
 
     <properties>
         <!-- Build -->
@@ -71,7 +71,7 @@
     </scm>
 
     <modules>
-        <module>build-report-markdown-generator-core</module>
+        <module>build-markdown-generator-core</module>
     </modules>
 
     <build>
