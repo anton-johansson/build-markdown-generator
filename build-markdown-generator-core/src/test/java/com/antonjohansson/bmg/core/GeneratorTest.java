@@ -87,6 +87,32 @@ public class GeneratorTest extends Assert
     }
 
     @Test
+    public void test_success()
+    {
+        CheckstyleModel checkstyle = new CheckstyleModel();
+        checkstyle.setResultsPresent(true);
+        checkstyle.setDetailedReportURL("https://my-jenkins-instance/job/build/130/checkstyleResult/");
+
+        JUnitModel junit = new JUnitModel();
+        junit.setExecutionTime(new BigDecimal("0.05"));
+        junit.setNumberOfTests(5);
+        junit.setNumberOfFailures(0);
+        junit.setNumberOfErrors(0);
+        junit.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
+        junit.setResultsPresent(true);
+
+        Model model = new Model();
+        model.setDetailedReportURL("https://my-jenkins-instance/job/build/130/");
+        model.setCheckstyle(checkstyle);
+        model.setJunit(junit);
+
+        String expected = file("/markdown/expected-success.md");
+        String actual = generator.generate(model, null);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void test_without_detailed_URLs()
     {
         CheckstyleModel checkstyle = new CheckstyleModel();
