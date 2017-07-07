@@ -26,7 +26,6 @@ import org.junit.Test;
 import com.antonjohansson.bmg.core.InputConfig;
 import com.antonjohansson.bmg.core.model.CheckstyleModel;
 import com.antonjohansson.bmg.core.model.CheckstyleViolation;
-import com.antonjohansson.bmg.core.modules.CheckstyleModule;
 
 /**
  * Unit tests of {@link CheckstyleModule}.

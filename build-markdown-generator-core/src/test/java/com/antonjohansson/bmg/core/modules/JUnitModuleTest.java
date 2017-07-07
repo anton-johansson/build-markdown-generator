@@ -26,7 +26,6 @@ import org.junit.Test;
 import com.antonjohansson.bmg.core.InputConfig;
 import com.antonjohansson.bmg.core.model.JUnitFailure;
 import com.antonjohansson.bmg.core.model.JUnitModel;
-import com.antonjohansson.bmg.core.modules.JUnitModule;
 
 /**
  * Unit tests of {@link JUnitModule}.

@@ -26,7 +26,6 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.antonjohansson.bmg.core.Generator;
 import com.antonjohansson.bmg.core.model.CheckstyleModel;
 import com.antonjohansson.bmg.core.model.CheckstyleViolation;
 import com.antonjohansson.bmg.core.model.JUnitFailure;
