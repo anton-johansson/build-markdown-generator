@@ -42,7 +42,7 @@ public class Runner
      * @param outputConfig The output configurations to use.
      * @return Returns the generated markdown.
      */
-    String run(InputConfig inputConfig, OutputConfig outputConfig)
+    public String run(InputConfig inputConfig, OutputConfig outputConfig)
     {
         Model model = processor.process(inputConfig);
         String markdown = generator.generate(model, outputConfig.getTemplate());

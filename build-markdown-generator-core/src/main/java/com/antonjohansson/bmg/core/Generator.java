@@ -15,7 +15,12 @@
  */
 package com.antonjohansson.bmg.core;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
+import java.io.IOException;
 import java.io.StringWriter;
+
+import org.apache.commons.io.IOUtils;
 
 import com.antonjohansson.bmg.core.model.Model;
 
@@ -27,6 +32,18 @@ import freemarker.template.Template;
  */
 class Generator
 {
+    private String getDefaultTemplate()
+    {
+        try
+        {
+            return IOUtils.toString(Generator.class.getResourceAsStream("/default-template.md"), "UTF-8");
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * Generates markdown.
      *
@@ -36,10 +53,16 @@ class Generator
      */
     String generate(Model model, String templateCode)
     {
+        String templateCodeToUse = templateCode;
+        if (isBlank(templateCodeToUse))
+        {
+            templateCodeToUse = getDefaultTemplate();
+        }
+
         try
         {
             Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
-            Template template = new Template("default", templateCode, cfg);
+            Template template = new Template("default", templateCodeToUse, cfg);
             StringWriter writer = new StringWriter();
             template.process(model, writer);
             return writer.toString();

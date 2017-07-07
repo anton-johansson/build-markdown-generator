@@ -46,7 +46,7 @@ public class GeneratorTest extends Assert
         model.setDetailedReportURL("https://my-jenkins-instance/job/build/130/");
 
         String expected = file("/markdown/expected-none.md");
-        String actual = generator.generate(model, file("/templates/template.md"));
+        String actual = generator.generate(model, null);
 
         assertEquals(expected, actual);
     }
@@ -81,7 +81,7 @@ public class GeneratorTest extends Assert
         model.setJunit(junit);
 
         String expected = file("/markdown/expected-all.md");
-        String actual = generator.generate(model, file("/templates/template.md"));
+        String actual = generator.generate(model, null);
 
         assertEquals(expected, actual);
     }
