@@ -12,6 +12,15 @@ Generates markdown for build reports, containing for example JUnit report, code 
   * JUnit
 
 
+## Generations
+
+### Maven
+
+```
+$ mvn com.anton-johansson:build-markdown-generator-maven-plugin:1.0.0:generate -DbuildMarkdownGenerator.checkstyleReportPatterns=**/target/checkstyle-result.xml -DbuildMarkdownGenerator.junitReportPatterns=**/target/surefire-reports/TEST-*.xml
+```
+
+
 ## License
 
 Apache License © [Anton Johansson](https://github.com/anton-johansson)
