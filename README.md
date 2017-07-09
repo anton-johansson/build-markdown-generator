@@ -12,7 +12,7 @@ Generates markdown for build reports, containing for example JUnit report, code 
   * JUnit
 
 
-## Generations
+## Entry points
 
 ### Maven
 
