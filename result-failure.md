@@ -20,5 +20,5 @@
 
 ### [Coverage](https://my-jenkins-instance/job/build/130/cobertura/)
 
-:boom: `79.69%` of all lines covered (`51/64`)
-:boom: `75%` of all branches covered (`12/16`)
+* :boom: `79.69%` of all lines covered (`51/64`)
+* :boom: `75%` of all branches covered (`12/16`)
