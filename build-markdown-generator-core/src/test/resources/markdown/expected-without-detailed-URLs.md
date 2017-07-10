@@ -6,8 +6,8 @@
 
 | Test | Message | Time |
 | ---- | ------- | ---- |
-| `com.some.test.MyClassTest.test_something3` | FAIL! | 0.003 |
-| `com.some.test.MyClassTest.test_something4` | ERROR! | 0.002 |
+| :small_blue_diamond: `com.some.test.MyClassTest.test_something3` | FAIL! | 0.003 |
+| :small_red_triangle: `com.some.test.MyClassTest.test_something4` | ERROR! | 0.002 |
 
 ### Checkstyle
 

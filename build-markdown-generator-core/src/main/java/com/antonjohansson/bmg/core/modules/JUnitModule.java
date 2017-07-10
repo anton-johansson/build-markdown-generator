@@ -99,6 +99,7 @@ public class JUnitModule
                             failure.setMessage(testcase.getMessage());
                             failure.setStacktrace(testcase.getStacktrace());
                             failure.setExecutionTime(testcase.getTime());
+                            failure.setError(testcase.getError() != null);
                             String detailedReportURL = getDetailedReportURL(config, failure);
                             failure.setDetailedReportURL(detailedReportURL);
                             return failure;

@@ -69,9 +69,9 @@ public class GeneratorTest extends Assert
         junit.setFailures(asList(
                 failure("test_something3", "0.003", "FAIL!", "java.lang.AssertionError: FAIL!\n"
                     + "\tat org.junit.Assert.fail(Assert.java:88)\n"
-                    + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n", true),
+                    + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n", true, false),
                 failure("test_something4", "0.002", "ERROR!", "java.lang.RuntimeException: ERROR!\n"
-                    + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n", true)));
+                    + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n", true, true)));
         junit.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
         junit.setResultsPresent(true);
 
@@ -129,9 +129,9 @@ public class GeneratorTest extends Assert
         junit.setFailures(asList(
                 failure("test_something3", "0.003", "FAIL!", "java.lang.AssertionError: FAIL!\n"
                     + "\tat org.junit.Assert.fail(Assert.java:88)\n"
-                    + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n", false),
+                    + "\tat com.some.test.MyClassTest.test_something3(MyClassTest.java:26)\n", false, false),
                 failure("test_something4", "0.002", "ERROR!", "java.lang.RuntimeException: ERROR!\n"
-                    + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n", false)));
+                    + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n", false, true)));
         junit.setResultsPresent(true);
 
         Model model = new Model();
@@ -144,7 +144,7 @@ public class GeneratorTest extends Assert
         assertEquals(expected, actual);
     }
 
-    private JUnitFailure failure(String testName, String executionTime, String message, String stacktrace, boolean detailedReportURL)
+    private JUnitFailure failure(String testName, String executionTime, String message, String stacktrace, boolean detailedReportURL, boolean error)
     {
         JUnitFailure failure = new JUnitFailure();
         failure.setClassName("com.some.test.MyClassTest");
@@ -152,6 +152,7 @@ public class GeneratorTest extends Assert
         failure.setMessage(message);
         failure.setStacktrace(stacktrace);
         failure.setExecutionTime(new BigDecimal(executionTime));
+        failure.setError(error);
         if (detailedReportURL)
         {
             failure.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/com.some.test/MyClassTest/" + testName + "/");

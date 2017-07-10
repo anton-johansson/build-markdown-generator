@@ -36,6 +36,7 @@ public class JUnitFailure
     private String stacktrace = "";
     private BigDecimal executionTime = BigDecimal.ZERO;
     private String detailedReportURL = "";
+    private boolean error;
 
     public String getClassName()
     {
@@ -107,6 +108,16 @@ public class JUnitFailure
         return substringAfterLast(className, ".");
     }
 
+    public boolean isError()
+    {
+        return error;
+    }
+
+    public void setError(boolean error)
+    {
+        this.error = error;
+    }
+
     @Override
     public int hashCode()
     {
@@ -136,6 +147,7 @@ public class JUnitFailure
                 .append(this.stacktrace, that.stacktrace)
                 .append(this.executionTime, that.executionTime)
                 .append(this.detailedReportURL, that.detailedReportURL)
+                .append(this.error, that.error)
                 .isEquals();
     }
 

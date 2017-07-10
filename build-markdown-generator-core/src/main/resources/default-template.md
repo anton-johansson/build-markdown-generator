@@ -13,7 +13,7 @@ A more detailed report can be found [here](${detailedReportURL}).
 | Test | Message | Time |
 | ---- | ------- | ---- |
 <#list junit.failures as failure>
-| <#if failure.detailedReportURL?has_content>[</#if>`${failure.className}.${failure.testName}`<#if failure.detailedReportURL?has_content>](${failure.detailedReportURL})</#if> | ${failure.message} | ${failure.executionTime} |
+| <#if failure.error>:small_red_triangle:<#else>:small_blue_diamond:</#if> <#if failure.detailedReportURL?has_content>[</#if>`${failure.className}.${failure.testName}`<#if failure.detailedReportURL?has_content>](${failure.detailedReportURL})</#if> | ${failure.message} | ${failure.executionTime} |
 </#list>
 </#if>
 </#if>
