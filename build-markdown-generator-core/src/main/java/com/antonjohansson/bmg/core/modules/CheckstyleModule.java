@@ -42,7 +42,7 @@ public class CheckstyleModule
 
     static
     {
-        MAPPER.configure(FAIL_ON_UNKNOWN_PROPERTIES, true);
+        MAPPER.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
     /**
