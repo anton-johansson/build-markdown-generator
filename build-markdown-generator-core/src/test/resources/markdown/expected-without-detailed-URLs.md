@@ -17,3 +17,8 @@
 | ----- | ---- | ------- |
 | MyClass.java | 3 | Missing JavaDoc. |
 | SomeOtherClass.java | 15 | Redundant newline(s). |
+
+### Coverage
+
+* :star: `82.26%` of all lines covered (`51/62`)
+* :boom: `75%` of all branches covered (`12/16`)

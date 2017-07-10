@@ -148,9 +148,21 @@ public class GeneratorTest extends Assert
                     + "\tat com.some.test.MyClassTest.test_something4(MyClassTest.java:32)\n", false, true)));
         junit.setResultsPresent(true);
 
+        CoberturaModel cobertura = new CoberturaModel();
+        cobertura.setLineCoverage(new BigDecimal("82.26"));
+        cobertura.setLinesCovered(51);
+        cobertura.setLinesTotal(62);
+        cobertura.setLinesPassedThreshold(true);
+        cobertura.setBranchCoverage(new BigDecimal("75"));
+        cobertura.setBranchesCovered(12);
+        cobertura.setBranchesTotal(16);
+        cobertura.setBranchesPassedThreshold(false);
+        cobertura.setResultsPresent(true);
+
         Model model = new Model();
         model.setCheckstyle(checkstyle);
         model.setJunit(junit);
+        model.setCobertura(cobertura);
 
         String expected = file("/markdown/expected-without-detailed-URLs.md");
         String actual = generator.generate(model, null);
