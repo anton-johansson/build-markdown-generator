@@ -37,7 +37,7 @@ import com.antonjohansson.bmg.core.Runner;
 @Mojo(name = "generate", aggregator = true)
 public class GenerateMojo extends AbstractMojo
 {
-    @Parameter(property = "buildMarkdownGenerator.root", required = true, defaultValue = "${project.build.directory}")
+    @Parameter(property = "buildMarkdownGenerator.root", required = true, defaultValue = "${basedir}")
     private File root;
 
     @Parameter
