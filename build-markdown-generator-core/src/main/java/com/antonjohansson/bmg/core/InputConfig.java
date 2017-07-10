@@ -18,6 +18,7 @@ package com.antonjohansson.bmg.core;
 import static java.util.Collections.emptyList;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -32,6 +33,10 @@ public class InputConfig
     private List<String> junitReportPatterns = emptyList();
     private String junitDetailedReportURL = "";
     private String junitDetailedReportForTestURL = "";
+    private String coberturaCoverageReport = "";
+    private BigDecimal coberturaLineThreshold = BigDecimal.ZERO;
+    private BigDecimal coberturaBranchThreshold = BigDecimal.ZERO;
+    private String coberturaDetailedReportURL = "";
 
     public File getRoot()
     {
@@ -101,5 +106,45 @@ public class InputConfig
     public void setJunitDetailedReportForTestURL(String junitDetailedReportForTestURL)
     {
         this.junitDetailedReportForTestURL = junitDetailedReportForTestURL;
+    }
+
+    public String getCoberturaCoverageReport()
+    {
+        return coberturaCoverageReport;
+    }
+
+    public void setCoberturaCoverageReport(String coberturaCoverageReport)
+    {
+        this.coberturaCoverageReport = coberturaCoverageReport;
+    }
+
+    public BigDecimal getCoberturaLineThreshold()
+    {
+        return coberturaLineThreshold;
+    }
+
+    public void setCoberturaLineThreshold(BigDecimal coberturaLineThreshold)
+    {
+        this.coberturaLineThreshold = coberturaLineThreshold;
+    }
+
+    public BigDecimal getCoberturaBranchThreshold()
+    {
+        return coberturaBranchThreshold;
+    }
+
+    public void setCoberturaBranchThreshold(BigDecimal coberturaBranchThreshold)
+    {
+        this.coberturaBranchThreshold = coberturaBranchThreshold;
+    }
+
+    public String getCoberturaDetailedReportURL()
+    {
+        return coberturaDetailedReportURL;
+    }
+
+    public void setCoberturaDetailedReportURL(String coberturaDetailedReportURL)
+    {
+        this.coberturaDetailedReportURL = coberturaDetailedReportURL;
     }
 }

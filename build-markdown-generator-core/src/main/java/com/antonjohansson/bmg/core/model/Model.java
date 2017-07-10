@@ -23,6 +23,7 @@ public class Model
     private String detailedReportURL = "";
     private CheckstyleModel checkstyle = new CheckstyleModel();
     private JUnitModel junit = new JUnitModel();
+    private CoberturaModel cobertura = new CoberturaModel();
 
     public String getDetailedReportURL()
     {
@@ -54,9 +55,20 @@ public class Model
         this.junit = junit;
     }
 
+    public CoberturaModel getCobertura()
+    {
+        return cobertura;
+    }
+
+    public void setCobertura(CoberturaModel cobertura)
+    {
+        this.cobertura = cobertura;
+    }
+
     public boolean isResultsPresent()
     {
         return checkstyle.isResultsPresent()
-            || junit.isResultsPresent();
+            || junit.isResultsPresent()
+            || cobertura.isResultsPresent();
     }
 }

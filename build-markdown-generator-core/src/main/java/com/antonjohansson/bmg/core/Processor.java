@@ -17,6 +17,7 @@ package com.antonjohansson.bmg.core;
 
 import com.antonjohansson.bmg.core.model.Model;
 import com.antonjohansson.bmg.core.modules.CheckstyleModule;
+import com.antonjohansson.bmg.core.modules.CoberturaModule;
 import com.antonjohansson.bmg.core.modules.JUnitModule;
 
 /**
@@ -26,6 +27,7 @@ class Processor
 {
     private CheckstyleModule checkstyle = new CheckstyleModule();
     private JUnitModule junit = new JUnitModule();
+    private CoberturaModule cobertura = new CoberturaModule();
 
     void setCheckstyle(CheckstyleModule checkstyle)
     {
@@ -35,6 +37,11 @@ class Processor
     void setJunit(JUnitModule junit)
     {
         this.junit = junit;
+    }
+
+    void setCobertura(CoberturaModule cobertura)
+    {
+        this.cobertura = cobertura;
     }
 
     /**
@@ -49,6 +56,7 @@ class Processor
         model.setDetailedReportURL(config.getDetailedReportURL());
         model.setCheckstyle(checkstyle.process(config));
         model.setJunit(junit.process(config));
+        model.setCobertura(cobertura.process(config));
         return model;
     }
 }
