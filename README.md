@@ -9,6 +9,7 @@ Generates markdown for build reports, containing for example JUnit report, code 
 ## Supported reports
 
   * Checkstyle
+  * Cobertura
   * JUnit
 
 
@@ -23,7 +24,11 @@ $ mvn com.anton-johansson:build-markdown-generator-maven-plugin:1.0.0:generate \
       -DbuildMarkdownGenerator.checkstyleDetailedReportURL=https://my-jenkins-instance/job/build/130/checkstyleResult/ \
       -DbuildMarkdownGenerator.junitReportPatterns=**/target/surefire-reports/TEST-*.xml \
       -DbuildMarkdownGenerator.junitDetailedReportURL=https://my-jenkins-instance/job/build/130/testReport/ \
-      -DbuildMarkdownGenerator.junitDetailedReportForTestURL=https://my-jenkins-instance/job/build/130/testReport/[packageName]/[simpleClassName]/[testName]
+      -DbuildMarkdownGenerator.junitDetailedReportForTestURL=https://my-jenkins-instance/job/build/130/testReport/[packageName]/[simpleClassName]/[testName] \
+      -DbuildMarkdownGenerator.coberturaCoverageReport=site/cobertura/coverage.xml \
+      -DbuildMarkdownGenerator.coberturaLineThreshold=90 \
+      -DbuildMarkdownGenerator.coberturaBranchThreshold=80 \
+      -DbuildMarkdownGenerator.coberturaDetailedReportURL=https://my-jenkins-instance/job/build/130/cobertura/
 ```
 
 

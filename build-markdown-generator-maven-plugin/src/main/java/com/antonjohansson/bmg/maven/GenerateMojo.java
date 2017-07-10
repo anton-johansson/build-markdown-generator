@@ -17,6 +17,7 @@ package com.antonjohansson.bmg.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -36,6 +37,12 @@ import com.antonjohansson.bmg.core.Runner;
 @Mojo(name = "generate", aggregator = true)
 public class GenerateMojo extends AbstractMojo
 {
+    @Parameter(property = "buildMarkdownGenerator.root", required = true, defaultValue = "${project.build.directory}")
+    private File root;
+
+    @Parameter
+    private String template;
+
     @Parameter(property = "buildMarkdownGenerator.detailedReportURL")
     private String detailedReportURL;
 
@@ -54,26 +61,36 @@ public class GenerateMojo extends AbstractMojo
     @Parameter(property = "buildMarkdownGenerator.junitDetailedReportForTestURL")
     private String junitDetailedReportForTestURL;
 
-    @Parameter(property = "buildMarkdownGenerator.root", required = true, defaultValue = "${project.build.directory}")
-    private File root;
-
-    @Parameter
-    private String template;
-
     @Parameter(property = "buildMarkdownGenerator.outputFile", required = true, defaultValue = "${project.build.directory}/build-markdown.md")
     private File outputFile;
+
+    @Parameter(property = "buildMarkdownGenerator.coberturaCoverageReport")
+    private String coberturaCoverageReport;
+
+    @Parameter(property = "buildMarkdownGenerator.coberturaLineThreshold", defaultValue = "80")
+    private double coberturaLineThreshold;
+
+    @Parameter(property = "buildMarkdownGenerator.coberturaBranchThreshold", defaultValue = "70")
+    private double coberturaBranchThreshold;
+
+    @Parameter(property = "buildMarkdownGenerator.coberturaDetailedReportURL")
+    private String coberturaDetailedReportURL;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException
     {
         InputConfig input = new InputConfig();
+        input.setRoot(root);
         input.setDetailedReportURL(detailedReportURL);
         input.setCheckstyleReportPatterns(checkstyleReportPatterns);
         input.setCheckstyleDetailedReportURL(checkstyleDetailedReportURL);
         input.setJunitReportPatterns(junitReportPatterns);
         input.setJunitDetailedReportURL(junitDetailedReportURL);
         input.setJunitDetailedReportForTestURL(junitDetailedReportForTestURL);
-        input.setRoot(root);
+        input.setCoberturaCoverageReport(coberturaCoverageReport);
+        input.setCoberturaLineThreshold(new BigDecimal(coberturaLineThreshold));
+        input.setCoberturaBranchThreshold(new BigDecimal(coberturaBranchThreshold));
+        input.setCoberturaDetailedReportURL(coberturaDetailedReportURL);
 
         OutputConfig output = new OutputConfig();
         output.setTemplate(template);

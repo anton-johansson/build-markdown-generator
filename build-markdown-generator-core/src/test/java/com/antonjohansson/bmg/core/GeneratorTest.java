@@ -28,6 +28,7 @@ import org.junit.Test;
 
 import com.antonjohansson.bmg.core.model.CheckstyleModel;
 import com.antonjohansson.bmg.core.model.CheckstyleViolation;
+import com.antonjohansson.bmg.core.model.CoberturaModel;
 import com.antonjohansson.bmg.core.model.JUnitFailure;
 import com.antonjohansson.bmg.core.model.JUnitModel;
 import com.antonjohansson.bmg.core.model.Model;
@@ -75,10 +76,23 @@ public class GeneratorTest extends Assert
         junit.setDetailedReportURL("https://my-jenkins-instance/job/build/130/testReport/");
         junit.setResultsPresent(true);
 
+        CoberturaModel cobertura = new CoberturaModel();
+        cobertura.setLineCoverage(new BigDecimal("82.26"));
+        cobertura.setLinesCovered(51);
+        cobertura.setLinesTotal(62);
+        cobertura.setLinesPassedThreshold(true);
+        cobertura.setBranchCoverage(new BigDecimal("75"));
+        cobertura.setBranchesCovered(12);
+        cobertura.setBranchesTotal(16);
+        cobertura.setBranchesPassedThreshold(false);
+        cobertura.setDetailedReportURL("https://my-jenkins-instance/job/build/130/cobertura/");
+        cobertura.setResultsPresent(true);
+
         Model model = new Model();
         model.setDetailedReportURL("https://my-jenkins-instance/job/build/130/");
         model.setCheckstyle(checkstyle);
         model.setJunit(junit);
+        model.setCobertura(cobertura);
 
         String expected = file("/markdown/expected-all.md");
         String actual = generator.generate(model, null);
