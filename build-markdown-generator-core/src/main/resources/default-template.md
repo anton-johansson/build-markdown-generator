@@ -1,13 +1,9 @@
-## Build report
-<#if detailedReportURL?has_content>
+## <#if detailedReportURL?has_content>[</#if>Build report<#if detailedReportURL?has_content>](${detailedReportURL})</#if>
 
-A more detailed report can be found [here](${detailedReportURL}).
-</#if>
 <#if junit.resultsPresent>
+### <#if junit.detailedReportURL?has_content>[</#if>JUnit<#if junit.detailedReportURL?has_content>](${junit.detailedReportURL})</#if>
 
-### JUnit
-
-<#if junit.numberOfFailures + junit.numberOfErrors gt 0>:cloud:<#else>:sunny:</#if> ${junit.numberOfTests - junit.numberOfFailures - junit.numberOfErrors}/${junit.numberOfTests} tests passed, over ${junit.executionTime} seconds.<#if junit.detailedReportURL?has_content> A more detailed report can be found [here](${junit.detailedReportURL}).</#if>
+<#if junit.numberOfFailures + junit.numberOfErrors gt 0>:cloud:<#else>:sunny:</#if> ${junit.numberOfTests - junit.numberOfFailures - junit.numberOfErrors}/${junit.numberOfTests} tests passed, over ${junit.executionTime} seconds.
 <#if junit.numberOfFailures + junit.numberOfErrors gt 0>
 
 | Test | Message | Time |
@@ -19,9 +15,9 @@ A more detailed report can be found [here](${detailedReportURL}).
 </#if>
 <#if checkstyle.resultsPresent>
 
-### Checkstyle
+### <#if checkstyle.detailedReportURL?has_content>[</#if>Checkstyle<#if checkstyle.detailedReportURL?has_content>](${checkstyle.detailedReportURL})</#if>
 
-<#if checkstyle.numberOfViolations gt 0>:warning:<#else>:white_check_mark:</#if> ${checkstyle.numberOfViolations} violations found.<#if checkstyle.detailedReportURL?has_content> A more detailed report can be found [here](${checkstyle.detailedReportURL}).</#if>
+<#if checkstyle.numberOfViolations gt 0>:warning:<#else>:white_check_mark:</#if> ${checkstyle.numberOfViolations} violations found.
 <#if checkstyle.numberOfViolations gt 0>
 
 | Class | Line | Message |
@@ -30,8 +26,6 @@ A more detailed report can be found [here](${detailedReportURL}).
 | ${violation.className} | ${violation.line} | ${violation.message} |
 </#list>
 </#if>
-</#if>
-<#if !resultsPresent>
-
+<#else>
 No generated reports were found!
 </#if>

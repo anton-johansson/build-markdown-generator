@@ -1,11 +1,9 @@
-## Build report
+## [Build report](https://my-jenkins-instance/job/build/130/)
 
-A more detailed report can be found [here](https://my-jenkins-instance/job/build/130/).
+### [JUnit](https://my-jenkins-instance/job/build/130/testReport/)
 
-### JUnit
+:sunny: 5/5 tests passed, over 0.05 seconds.
 
-:sunny: 5/5 tests passed, over 0.05 seconds. A more detailed report can be found [here](https://my-jenkins-instance/job/build/130/testReport/).
+### [Checkstyle](https://my-jenkins-instance/job/build/130/checkstyleResult/)
 
-### Checkstyle
-
-:white_check_mark: 0 violations found. A more detailed report can be found [here](https://my-jenkins-instance/job/build/130/checkstyleResult/).
+:white_check_mark: 0 violations found.

@@ -1,19 +1,17 @@
-## Build report
+## [Build report](https://my-jenkins-instance/job/build/130/)
 
-A more detailed report can be found [here](https://my-jenkins-instance/job/build/130/).
+### [JUnit](https://my-jenkins-instance/job/build/130/testReport/)
 
-### JUnit
-
-:cloud: 3/5 tests passed, over 0.01 seconds. A more detailed report can be found [here](https://my-jenkins-instance/job/build/130/testReport/).
+:cloud: 3/5 tests passed, over 0.01 seconds.
 
 | Test | Message | Time |
 | ---- | ------- | ---- |
 | :small_blue_diamond: [`com.some.test.MyClassTest.test_something3`](https://my-jenkins-instance/job/build/130/testReport/com.some.test/MyClassTest/test_something3/) | FAIL! | 0.003 |
 | :small_red_triangle: [`com.some.test.MyClassTest.test_something4`](https://my-jenkins-instance/job/build/130/testReport/com.some.test/MyClassTest/test_something4/) | ERROR! | 0.002 |
 
-### Checkstyle
+### [Checkstyle](https://my-jenkins-instance/job/build/130/checkstyleResult/)
 
-:warning: 2 violations found. A more detailed report can be found [here](https://my-jenkins-instance/job/build/130/checkstyleResult/).
+:warning: 2 violations found.
 
 | Class | Line | Message |
 | ----- | ---- | ------- |
