@@ -26,7 +26,7 @@
     </parent>
     <groupId>com.anton-johansson</groupId>
     <artifactId>build-markdown-generator</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>Anton Johansson :: Build Markdown Generator</name>
     <description>Generates markdown for build reports, containing for example JUnit report, code coverage report, etc.</description>
@@ -66,7 +66,7 @@
         <url>https://github.com/anton-johansson/build-report-markdown-generator</url>
         <connection>scm:git:git@github.com:anton-johansson/build-report-markdown-generator.git</connection>
         <developerConnection>scm:git:git@github.com:anton-johansson/build-report-markdown-generator.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.0.0</tag>
     </scm>
 
     <distributionManagement>
