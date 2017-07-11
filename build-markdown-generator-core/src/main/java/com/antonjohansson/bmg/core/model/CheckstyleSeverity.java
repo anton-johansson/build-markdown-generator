@@ -38,6 +38,9 @@ public enum CheckstyleSeverity
 
     /**
      * Gets a checkstyle severity by its internal name.
+     *
+     * @param checkstyleName The name of the severity from Checkstyles point of view.
+     * @return Returns the severity.
      */
     public static CheckstyleSeverity fromCheckstyleName(String checkstyleName)
     {

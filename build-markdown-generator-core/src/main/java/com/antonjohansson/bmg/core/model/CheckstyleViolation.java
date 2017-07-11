@@ -40,6 +40,11 @@ public class CheckstyleViolation
 
     /**
      * Creates a new violation with the given data.
+     *
+     * @param className The full name of the class where the violation occurred.
+     * @param line The line number where the violation occurred.
+     * @param message The message of the violation.
+     * @param severity The severity of the violation.
      */
     public CheckstyleViolation(String className, int line, String message, CheckstyleSeverity severity)
     {
