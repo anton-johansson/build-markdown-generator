@@ -32,6 +32,24 @@ $ mvn com.anton-johansson:build-markdown-generator-maven-plugin:1.0.0:generate \
 ```
 
 
+## Release instructions
+
+```
+$ git checkout ${commitSHA}
+$ mvn versions:set -DnewVersion=1.0.0 -DgenerateBackupPoms=false
+```
+
+Update `<scm><tag>v1.0.0</tag></scm>` (would be nice if we could find a Maven goal for this)
+
+```
+$ git add .
+$ git commit -m "Set new version"
+$ git tag v1.0.0
+$ git push --tags
+$ mvn deploy -Psonatype-oss-release -Pprivate-signing
+```
+
+
 ## License
 
 Apache License © [Anton Johansson](https://github.com/anton-johansson)
