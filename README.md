@@ -5,6 +5,8 @@
 
 Generates markdown for build reports, containing for example JUnit report, code coverage report, etc. A success example result can be found [here](./result-success.md) and a failure example result can be found [here](./result-failure.md).
 
+<img src="screenshot.png">
+
 
 ## Supported reports
 
