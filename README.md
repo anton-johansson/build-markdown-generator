@@ -46,7 +46,7 @@ $ git add .
 $ git commit -m "Set new version"
 $ git tag v1.0.0
 $ git push --tags
-$ mvn deploy -Psonatype-oss-release -Pprivate-signing
+$ mvn deploy -Psonatype-oss-release -Pprivate
 ```
 
 
