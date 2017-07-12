@@ -17,6 +17,8 @@ Generates markdown for build reports, containing for example JUnit report, code 
 
 ## Entry points
 
+Also see the [samples](samples/).
+
 ### Maven
 
 ```
