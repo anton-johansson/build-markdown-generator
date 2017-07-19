@@ -43,7 +43,7 @@ $ git checkout ${commitSHA}
 $ mvn versions:set -DnewVersion=1.0.0 -DgenerateBackupPoms=false
 ```
 
-Update `<scm><tag>v1.0.0</tag></scm>` (would be nice if we could find a Maven goal for this)
+Update `<scm><tag>v1.0.0</tag></scm>` (would be nice if we could find [a Maven goal](https://github.com/mojohaus/versions-maven-plugin/pull/184) for this)
 
 ```
 $ git add .
