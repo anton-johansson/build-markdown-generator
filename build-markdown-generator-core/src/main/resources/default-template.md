@@ -30,8 +30,8 @@
 
 ### <#if cobertura.detailedReportURL?has_content>[</#if>Coverage<#if cobertura.detailedReportURL?has_content>](${cobertura.detailedReportURL})</#if>
 
-* <#if cobertura.linesPassedThreshold>:star:<#else>:boom:</#if> `${cobertura.lineCoverage}%` of all lines covered (`${cobertura.linesCovered}/${cobertura.linesTotal}`)
-* <#if cobertura.branchesPassedThreshold>:star:<#else>:boom:</#if> `${cobertura.branchCoverage}%` of all branches covered (`${cobertura.branchesCovered}/${cobertura.branchesTotal}`)
+<#if cobertura.linesPassedThreshold>:star:<#else>:boom:</#if> `${cobertura.lineCoverage}%` of all lines covered (`${cobertura.linesCovered}/${cobertura.linesTotal}`)  
+<#if cobertura.branchesPassedThreshold>:star:<#else>:boom:</#if> `${cobertura.branchCoverage}%` of all branches covered (`${cobertura.branchesCovered}/${cobertura.branchesTotal}`)
 </#if>
 <#else>
 No generated reports were found!
