@@ -85,6 +85,7 @@
     <modules>
         <module>build-markdown-generator-core</module>
         <module>build-markdown-generator-maven-plugin</module>
+        <module>build-markdown-generator-cli</module>
     </modules>
 
     <build>
